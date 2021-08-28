@@ -1,0 +1,64 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.0.0
+MinimumVisualStudioVersion = 16.0.0.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudTracker.Server", "Server\MudTracker.Server.csproj", "{9CC76787-1466-40A0-A619-834105ECB75A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudTracker.Client", "Client\MudTracker.Client.csproj", "{39A0EFF6-BF96-4A3E-9CE0-6A9F57376114}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudTracker.Shared", "Shared\MudTracker.Shared.csproj", "{11478BE8-7B6C-47B4-8C1F-6714A672F3B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CC76787-1466-40A0-A619-834105ECB75A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CC76787-1466-40A0-A619-834105ECB75A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CC76787-1466-40A0-A619-834105ECB75A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9CC76787-1466-40A0-A619-834105ECB75A}.Debug|x64.Build.0 = Debug|Any CPU
+		{9CC76787-1466-40A0-A619-834105ECB75A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9CC76787-1466-40A0-A619-834105ECB75A}.Debug|x86.Build.0 = Debug|Any CPU
+		{9CC76787-1466-40A0-A619-834105ECB75A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CC76787-1466-40A0-A619-834105ECB75A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CC76787-1466-40A0-A619-834105ECB75A}.Release|x64.ActiveCfg = Release|Any CPU
+		{9CC76787-1466-40A0-A619-834105ECB75A}.Release|x64.Build.0 = Release|Any CPU
+		{9CC76787-1466-40A0-A619-834105ECB75A}.Release|x86.ActiveCfg = Release|Any CPU
+		{9CC76787-1466-40A0-A619-834105ECB75A}.Release|x86.Build.0 = Release|Any CPU
+		{39A0EFF6-BF96-4A3E-9CE0-6A9F57376114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39A0EFF6-BF96-4A3E-9CE0-6A9F57376114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39A0EFF6-BF96-4A3E-9CE0-6A9F57376114}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{39A0EFF6-BF96-4A3E-9CE0-6A9F57376114}.Debug|x64.Build.0 = Debug|Any CPU
+		{39A0EFF6-BF96-4A3E-9CE0-6A9F57376114}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{39A0EFF6-BF96-4A3E-9CE0-6A9F57376114}.Debug|x86.Build.0 = Debug|Any CPU
+		{39A0EFF6-BF96-4A3E-9CE0-6A9F57376114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39A0EFF6-BF96-4A3E-9CE0-6A9F57376114}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39A0EFF6-BF96-4A3E-9CE0-6A9F57376114}.Release|x64.ActiveCfg = Release|Any CPU
+		{39A0EFF6-BF96-4A3E-9CE0-6A9F57376114}.Release|x64.Build.0 = Release|Any CPU
+		{39A0EFF6-BF96-4A3E-9CE0-6A9F57376114}.Release|x86.ActiveCfg = Release|Any CPU
+		{39A0EFF6-BF96-4A3E-9CE0-6A9F57376114}.Release|x86.Build.0 = Release|Any CPU
+		{11478BE8-7B6C-47B4-8C1F-6714A672F3B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11478BE8-7B6C-47B4-8C1F-6714A672F3B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11478BE8-7B6C-47B4-8C1F-6714A672F3B0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{11478BE8-7B6C-47B4-8C1F-6714A672F3B0}.Debug|x64.Build.0 = Debug|Any CPU
+		{11478BE8-7B6C-47B4-8C1F-6714A672F3B0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{11478BE8-7B6C-47B4-8C1F-6714A672F3B0}.Debug|x86.Build.0 = Debug|Any CPU
+		{11478BE8-7B6C-47B4-8C1F-6714A672F3B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11478BE8-7B6C-47B4-8C1F-6714A672F3B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11478BE8-7B6C-47B4-8C1F-6714A672F3B0}.Release|x64.ActiveCfg = Release|Any CPU
+		{11478BE8-7B6C-47B4-8C1F-6714A672F3B0}.Release|x64.Build.0 = Release|Any CPU
+		{11478BE8-7B6C-47B4-8C1F-6714A672F3B0}.Release|x86.ActiveCfg = Release|Any CPU
+		{11478BE8-7B6C-47B4-8C1F-6714A672F3B0}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50A813CB-6A78-4DBE-84FC-A77C119F4C7B}
+	EndGlobalSection
+EndGlobal
