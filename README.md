@@ -7,7 +7,7 @@ This version also includes a probability for mud based on presence of rain in 2 
 
 Also includes support for determining your location through JSInterop and the browsers Geolocation API.
 
-![tests](https://github.com/shanabus/mudtracker/actions/workflows/dotnet.yml/badge.svg)
+![tests](https://github.com/shanabus/mudtracker/actions/workflows/dotnet.yml/badge.svg) ![deploy](https://github.com/shanabus/mudtracker/actions/workflows/deploy.yml/badge.svg)
 
 # Build docker image
 Clone or download repo and from the **\MudTracker** folder, build the image
