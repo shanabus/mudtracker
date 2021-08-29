@@ -36,5 +36,6 @@ jobs:
             registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
             registry-username: ${{ secrets.REGISTRY_USERNAME }}
             registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-            name: mudpuddle2
-            location: 'west us'
+            secure-environment-variables: Weather__ApiKey=${{ secrets.WEATHER_APIKEY }}
+            name: mudpuddle
+            location: 'east us'
