@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             // "preLaunchTask": "build",
-            "program": "${workspaceFolder}/BrazorwasmDotNetCoreHostedWithDocker/Server/bin/Debug/net5.0/BrazorwasmDotNetCoreHostedWithDocker.Server.dll",
+            "program": "${workspaceFolder}/Server/bin/Debug/net5.0/MudTracker.Server.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,

@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "BrazorwasmDotNetCoreHostedWithDocker": {
+    "MudTracker": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

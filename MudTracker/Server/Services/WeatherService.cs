@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
 using MudTracker.Server.Services.Interfaces;
 using MudTracker.Shared;
@@ -60,7 +59,7 @@ namespace MudTracker.Server.Services
                     if (thirdDay.Rain > 0 && thirdDay.ProbabilityOfPrecipitation > 0.5m)
                     {
                         chance.Probability = thirdDay.ProbabilityOfPrecipitation * 100;
-                        chance.Message = "Rain is coming, should be muddy";
+                        chance.Message = $"Rain is coming in {dayToEvaluate} days, should be muddy";
                     }
                     // does the day before it look wet enough?
                     else if (secondDay.Temp?.Min > FREEZE_POINT && secondDay.Rain > 0 && secondDay.ProbabilityOfPrecipitation > 0)

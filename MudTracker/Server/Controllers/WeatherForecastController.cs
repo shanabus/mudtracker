@@ -27,5 +27,17 @@ namespace MudTracker.Server.Controllers
 
             return result;
         }
+
+        [HttpGet]
+        [Route("chanceofmud")]
+        public async Task<ChanceOfMudProbability> GetChanceOfMud()
+        {
+            // Grand Rapids, MI = 42.963, -85.668
+            var forecast = await _weatherService.GetForecast(42.963, -85.668);
+
+            var result = _weatherService.ChanceOfMud(forecast, 3);
+
+            return result;
+        }
     }
 }
