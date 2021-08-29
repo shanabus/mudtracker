@@ -1,9 +1,11 @@
 # Mud Tracker 1.0
-This application determines if you'll need boots to trudge throught the mud in 3 days
+This Hosted Blazor application determines if you'll need boots to trudge throught the mud in 3 days
 - likelihood of rain
 - temp is above freezing
 
-This version also includes a probability for mud based on presence of rain in 2 days
+This version also includes a probability for mud based on presence of rain in 2 days along with humidity and wind conditions.
+
+Also includes support for determining your location through JSInterop and the browsers Geolocation API.
 
 # Build docker image
 Clone or download repo and from the **\MudTracker** folder, build the image
@@ -25,3 +27,5 @@ Execute the tests from the **MudTracker** folder with the following command
 ```bash
 dotnet test .\Tests\MudTracker.Tests.csproj
 ```
+
+Additional parameters for testing [here](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test)
