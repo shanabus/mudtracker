@@ -25,7 +25,7 @@ namespace MudTracker.Server.Services
 
         public async Task<WeatherForecast> GetForecast(double lat = 42.963, double lon = -85.668)
         {
-            var response = await _client.GetFromJsonAsync<WeatherForecast>($"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid={_settings.Value.ApiKey}&units=imperial");
+            var response = await _client.GetFromJsonAsync<WeatherForecast>($"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid={_settings.Value.ApiKey}&exclude=minutely&units=imperial");
 
             if (response != null)
             {

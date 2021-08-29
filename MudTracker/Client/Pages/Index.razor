@@ -51,10 +51,18 @@ else
     </div>                    
 }
 
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @ErrorMessage
+    </div>
+}
+
 @code {
     private ChanceOfMudProbability ChanceOfMud;
 
     private IPAddress ipAddress = new IPAddress();
+    private string ErrorMessage;
     
     private string Lat = "37.234332396"; 
     
@@ -71,7 +79,18 @@ else
 
     public async Task GetChanceOfMudAsync()
     {
-        ChanceOfMud = await Http.GetFromJsonAsync<ChanceOfMudProbability>($"WeatherForecast/ChanceOfMud?lat={Lat}&lon={Lon}");
+        try
+        {
+            ChanceOfMud = await Http.GetFromJsonAsync<ChanceOfMudProbability>($"WeatherForecast/ChanceOfMud?lat={Lat}&lon={Lon}");
+            ErrorMessage = "";
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+
+            ErrorMessage = "There was a problem with that request.  Try again or refresh the page.";
+        }        
+        StateHasChanged();
     }
 
     public async void GetGeo()
@@ -88,8 +107,6 @@ else
         Lon = longitude.ToString();        
 
         await GetChanceOfMudAsync();
-
-        StateHasChanged();
     }
 
     private DotNetObjectReference<Index> objRef;

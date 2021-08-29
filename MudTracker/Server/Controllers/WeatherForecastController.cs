@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MudTracker.Shared;
 using MudTracker.Server.Services.Interfaces;
+using System;
 
 namespace MudTracker.Server.Controllers
 {
@@ -35,7 +36,7 @@ namespace MudTracker.Server.Controllers
             // Grand Rapids, MI = 42.963, -85.668
             var forecast = await _weatherService.GetForecast(lat, lon);
 
-            var result = _weatherService.ChanceOfMud(forecast, 3);
+            var result = _weatherService.ChanceOfMud(forecast, 3);    
 
             return result;
         }
