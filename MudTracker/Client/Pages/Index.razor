@@ -16,8 +16,7 @@ else
                 <h1 class="display-4">@((Int32)ChanceOfMud.Probability) % <small>chance of Mud</small></h1>
                 <p class="lead">@ChanceOfMud.Message</p>
                 <hr class="my-4">
-                <p>This utility is not liable for ruined socks or shoes</p>
-                <br />
+                <p>This utility is not liable for ruined socks or shoes</p>                
                 <p>Location Used</p>
                 <div>
                     <form class="form-inline">
@@ -35,7 +34,8 @@ else
                         </div>
                     </form>                    
                 </div>
-                <p>Your IP: @ipAddress.IP</p>
+                <br />
+                <p class="text-muted">Your IP: @ipAddress.IP</p>
             </div>
             <div class="col-sm-6">
                 <div class="row">
