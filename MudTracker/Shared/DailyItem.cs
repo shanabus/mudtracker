@@ -17,10 +17,18 @@ namespace MudTracker.Shared
 
         [JsonPropertyName("feels_like")]
         public FeelsLike FeelsLike { get; set; }
-        public int pressure { get; set; }
-        public int humidity { get; set; }
-        public double dew_point { get; set; }
-        public double wind_speed { get; set; }
+
+        [JsonPropertyName("pressure")]
+        public int Pressure { get; set; }
+
+        [JsonPropertyName("humidity")]
+        public int Humidity { get; set; }
+
+        [JsonPropertyName("dew_point")]
+        public double DewPoint { get; set; }
+
+        [JsonPropertyName("wind_speed")]
+        public double WindSpeed { get; set; }
         
         [JsonPropertyName("wind_deg")]
         public int WindDeg { get; set; }

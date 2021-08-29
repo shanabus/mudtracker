@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
 using MudTracker.Shared;
 using MudTracker.Server.Services.Interfaces;
 
@@ -26,6 +22,7 @@ namespace MudTracker.Server.Controllers
         [HttpGet]
         public async Task<WeatherForecast> Get()
         {
+            // Grand Rapids, MI = 42.963, -85.668
             var result = await _weatherService.GetForecast(42.963, -85.668);
 
             return result;
