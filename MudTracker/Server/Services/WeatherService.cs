@@ -73,7 +73,7 @@ namespace MudTracker.Server.Services
                         if (thirdDay.WindSpeed > 0 && thirdDay.Humidity < 50)
                         {
                             chance.Probability = 30;
-                            chance.Message += $", but with good wind ({thirdDay.WindSpeed}) and lower humidity ({thirdDay.Humidity * 100} %), you are probably fine.";
+                            chance.Message += $", but with good wind ({thirdDay.WindSpeed}) and lower humidity ({thirdDay.Humidity} %), you are probably fine.";
                         }
                     }
                 }

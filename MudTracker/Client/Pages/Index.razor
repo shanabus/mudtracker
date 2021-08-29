@@ -1,6 +1,8 @@
 ﻿@page "/"
+@implements IDisposable
 @using MudTracker.Shared
 @inject HttpClient Http
+@inject IJSRuntime JS
 
 @if(ChanceOfMud == null)
 {
@@ -10,15 +12,32 @@ else
 {
     <div class="jumbotron">
         <div class="row">
-            <div class="col-sm-5"> 
-                <h1 class="display-4">@((Int32)ChanceOfMud.Probability) %</h1>
+            <div class="col-sm-6"> 
+                <h1 class="display-4">@((Int32)ChanceOfMud.Probability) % <small>chance of Mud</small></h1>
                 <p class="lead">@ChanceOfMud.Message</p>
                 <hr class="my-4">
                 <p>This utility is not liable for ruined socks or shoes</p>
+                <br />
+                <p>Location Used</p>
+                <div>
+                    <form class="form-inline">
+                        <div class="row">
+                            <div class="col text-left">
+                                <input type="text" id="lat" @bind="Lat" placeholder="Latitude" class="form-control" />
+                            </div>
+                            <div class="col text-left">
+                                <input type="text" id="lon" @bind="Lon" placeholder="Longitude" class="form-control" />        
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary" @onclick="GetChanceOfMudAsync" type="button" title="Refresh location">refresh</button>        
+                                <button class="btn btn-secondary ml-2" @onclick="GetGeo" type="button" title="Locate"><i class="oi oi-map" /></button>        
+                            </div>
+                        </div>
+                    </form>                    
+                </div>
                 <p>Your IP: @ipAddress.IP</p>
-                
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm-6">
                 <div class="row">
                     @foreach(var day in ChanceOfMud.Daily)
                     {
@@ -36,13 +55,47 @@ else
     private ChanceOfMudProbability ChanceOfMud;
 
     private IPAddress ipAddress = new IPAddress();
+    
+    private string Lat = "37.234332396"; 
+    
+    private string Lon = "-115.80666344";
 
     protected override async Task OnInitializedAsync()
     {
-        ChanceOfMud = await Http.GetFromJsonAsync<ChanceOfMudProbability>("WeatherForecast/ChanceOfMud");
+        await GetChanceOfMudAsync();
         
-        ipAddress =  await Http.GetFromJsonAsync<IPAddress>("Location"); //_apiClientService.GetUserIPAsync();
-        
-        // location = await Http.GetFromJsonAsync<UserGeoLocation >("Location/Geo"); 
+        ipAddress =  await Http.GetFromJsonAsync<IPAddress>("Location");  
+    
+        await base.OnInitializedAsync();               
+    }
+
+    public async Task GetChanceOfMudAsync()
+    {
+        ChanceOfMud = await Http.GetFromJsonAsync<ChanceOfMudProbability>($"WeatherForecast/ChanceOfMud?lat={Lat}&lon={Lon}");
+    }
+
+    public async void GetGeo()
+    {
+        objRef = DotNetObjectReference.Create(this);
+
+        await JS.InvokeVoidAsync("getLocation", objRef);
+    }
+
+    [JSInvokable]
+    public async Task SetLocationAsync(double latitude, double longitude)
+    {
+        Lat = latitude.ToString();
+        Lon = longitude.ToString();        
+
+        await GetChanceOfMudAsync();
+
+        StateHasChanged();
+    }
+
+    private DotNetObjectReference<Index> objRef;
+
+    public void Dispose()
+    {
+        objRef?.Dispose();
     }
 }

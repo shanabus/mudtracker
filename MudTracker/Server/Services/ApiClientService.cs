@@ -5,6 +5,8 @@ using MudTracker.Shared;
 
 namespace MudTracker.Server.Services
 {
+    // help from https://www.learmoreseekmore.com/2020/12/users-ip-geolocation-blazorwebasm.html
+    // and here https://ipstack.com/quickstart
     public class ApiClientService: IApiClientService
     {
         private readonly IHttpClientFactory _httpClientFactory;

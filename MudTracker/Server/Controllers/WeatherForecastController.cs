@@ -20,20 +20,20 @@ namespace MudTracker.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<WeatherForecast> Get()
+        public async Task<WeatherForecast> Get(double lat, double lon)
         {
             // Grand Rapids, MI = 42.963, -85.668
-            var result = await _weatherService.GetForecast(42.963, -85.668);
+            var result = await _weatherService.GetForecast(lat, lon);
 
             return result;
         }
 
         [HttpGet]
         [Route("chanceofmud")]
-        public async Task<ChanceOfMudProbability> GetChanceOfMud()
+        public async Task<ChanceOfMudProbability> GetChanceOfMud(double lat, double lon)
         {
             // Grand Rapids, MI = 42.963, -85.668
-            var forecast = await _weatherService.GetForecast(42.963, -85.668);
+            var forecast = await _weatherService.GetForecast(lat, lon);
 
             var result = _weatherService.ChanceOfMud(forecast, 3);
 

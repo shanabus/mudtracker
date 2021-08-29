@@ -26,10 +26,15 @@ else
 @code {
     private WeatherForecast forecast;
     private string forecastJson;
+    
+    private static string Lat = "42.963"; 
+    
+    private static string Lon = "-85.668";
+
 
     protected override async Task OnInitializedAsync()
     {
-        forecast = await Http.GetFromJsonAsync<WeatherForecast>("WeatherForecast");
+        forecast = await Http.GetFromJsonAsync<WeatherForecast>($"WeatherForecast?lat={Lat}&lon={Lon}");
 
         forecastJson = JsonSerializer.Serialize(forecast);
     }
