@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace MudTracker.Shared
 {
     public class ChanceOfMudProbability
@@ -7,5 +9,7 @@ namespace MudTracker.Shared
         public decimal Probability { get; set; }
 
         public string Message { get; set; }
+
+        public List<DailyItem> Daily { get; set; }
     }
 }

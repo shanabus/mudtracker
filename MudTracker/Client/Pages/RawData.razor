@@ -14,11 +14,13 @@
 }
 else
 {
-    <div class="row">
-        <div class="col">
-            <textarea>@((MarkupString)forecastJson)</textarea>
-        </div>        
-    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-small">
+                <textarea class="form-control" style="min-width: 100%; font-size: 10pt;" rows="30">@((MarkupString)forecastJson)</textarea>
+            </div>        
+        </div>
+    </div>    
 }
 
 @code {

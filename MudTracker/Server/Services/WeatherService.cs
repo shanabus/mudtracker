@@ -5,10 +5,11 @@ using MudTracker.Server.Services.Interfaces;
 using MudTracker.Shared;
 using Microsoft.Extensions.Options;
 using System.Net.Http.Json;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace MudTracker.Server.Services
 {
-
     public class WeatherService : IWeatherService
     {
         private readonly double FREEZE_POINT = 32;
@@ -24,7 +25,6 @@ namespace MudTracker.Server.Services
 
         public async Task<WeatherForecast> GetForecast(double lat = 42.963, double lon = -85.668)
         {
-            //var response = await _client.GetByteArrayAsync($"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid={_settings.Value.ApiKey}");
             var response = await _client.GetFromJsonAsync<WeatherForecast>($"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid={_settings.Value.ApiKey}&units=imperial");
 
             if (response != null)
@@ -41,7 +41,7 @@ namespace MudTracker.Server.Services
 
         public ChanceOfMudProbability ChanceOfMud(WeatherForecast forecast, int dayToEvaluate = 3)
         {
-            var chance = new ChanceOfMudProbability() { WasCalculated = false };
+            var chance = new ChanceOfMudProbability() { WasCalculated = false, Daily = new List<DailyItem>() };
                         
             if (forecast.Daily?.Count < 3)
             {
@@ -51,10 +51,13 @@ namespace MudTracker.Server.Services
             {
                 var secondDay = forecast.Daily[dayToEvaluate - 2];
                 var thirdDay = forecast.Daily[dayToEvaluate - 1];
+                
+                chance.Daily.AddRange(forecast.Daily.Take(3));
 
                 // is it warm enough?
                 if (thirdDay.Temp.Min > FREEZE_POINT)
                 {
+
                     // does the third day imply wet soil?
                     if (thirdDay.Rain > 0 && thirdDay.ProbabilityOfPrecipitation > 0.5m)
                     {

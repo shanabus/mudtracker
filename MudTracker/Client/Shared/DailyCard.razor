@@ -1,0 +1,28 @@
+@using MudTracker.Shared
+<div class="card @ActiveClass()">
+    <img class="card-img-top" src="http://openweathermap.org/img/wn/@Day.Weather[0].Icon@@4x.png" alt="@(Day.Weather[0].Description) image">
+    <div class="card-body">
+        <h5 class="card-title">@UnixTimeStampToDateTime().ToShortDateString()</h5>
+        <p class="card-text">@Day.Weather[0].Description</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public bool IsLastDay { get; set; }
+
+    [Parameter]
+    public DailyItem Day { get; set; }
+
+    public DateTime UnixTimeStampToDateTime()
+    {
+        // Unix timestamp is seconds past epoch
+        DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+        dateTime = dateTime.AddSeconds( Day.dt ).ToLocalTime();
+        return dateTime;
+    }
+
+    public string ActiveClass() {
+         return IsLastDay ? "text-white bg-primary": "";
+    }
+}
