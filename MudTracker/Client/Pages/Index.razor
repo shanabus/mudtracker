@@ -15,6 +15,8 @@ else
                 <p class="lead">@ChanceOfMud.Message</p>
                 <hr class="my-4">
                 <p>This utility is not liable for ruined socks or shoes</p>
+                <p>Your IP: @ipAddress.IP</p>
+                
             </div>
             <div class="col-sm-7">
                 <div class="row">
@@ -33,8 +35,14 @@ else
 @code {
     private ChanceOfMudProbability ChanceOfMud;
 
+    private IPAddress ipAddress = new IPAddress();
+
     protected override async Task OnInitializedAsync()
     {
         ChanceOfMud = await Http.GetFromJsonAsync<ChanceOfMudProbability>("WeatherForecast/ChanceOfMud");
+        
+        ipAddress =  await Http.GetFromJsonAsync<IPAddress>("Location"); //_apiClientService.GetUserIPAsync();
+        
+        // location = await Http.GetFromJsonAsync<UserGeoLocation >("Location/Geo"); 
     }
 }

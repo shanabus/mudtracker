@@ -28,9 +28,18 @@ namespace MudTracker.Server
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.AddHttpClient("IP", (options) => {
+                options.BaseAddress = new System.Uri("https://jsonip.com");
+            });
+
+            services.AddHttpClient("Location", options => {
+                options.BaseAddress = new System.Uri("http://api.ipstack.com");
+            });
+
             services.Configure<WeatherSettings>(Configuration.GetSection("Weather"));
 
             services.AddSingleton<IWeatherService, WeatherService>();
+            services.AddScoped<IApiClientService, ApiClientService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
